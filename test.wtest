@@ -1,0 +1,19 @@
+import criaturas.*
+import roles.*
+import areas.*
+
+describe "Test de criaturas" {
+  const duende1 = new Duende(poderMag= 10, astucia= 5, rol= hechicero)
+  const hada1 = new Hada(poderMag=10, astucia=5 , rol= guardian)
+  const colonia1 = new Colonia(criaturas=[duende1, hada1])
+  const castillo1 = new Castillo(colonia=colonia1)
+  
+  test "calcular poder defensivo del castillo 1" {
+    assert.equals(200, castillo1.poderDef())
+  }
+
+  test"colonia1 tiene un poder ofensivo de "{
+    assert.equals(110+200, colonia1.poderOfeTotal())
+  }
+
+}
